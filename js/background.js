@@ -9,38 +9,9 @@ var delay_seconds = function(seconds) {
     next_check_time.setSeconds(next_check_time.getSeconds() + seconds);
 }
 
-console.log('aaa');
 chrome.runtime.onInstalled.addListener(function() {
-    console.log("Installed.");
-
-    setInterval(check_status, 30*1000); // 30 seconds
-    check_status();
-
-    chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex) {
-        if (notificationId == NOTIFICATION_ID) {
-            delay_seconds(30*60); // 30 minutes
-
-            if (buttonIndex == 0) {
-                var url = chrome.extension.getURL('popup.html');
-                var options = 'width=325,height=325,top=200,left=450';
-                window.popUpWindow = window.open(url, "Where Are You Working?", options);
-            }
-
-            chrome.notifications.clear(notificationId, function(wasCleared) {
-            });
-        }
-    });
-
-    chrome.notifications.onClosed.addListener(function(notificationId, byUser) {
-        if (notificationId == NOTIFICATION_ID && byUser) {
-            delay_seconds(5*60); // 5 minutes
-            chrome.notifications.clear(notificationId, function(wasCleared) {
-            });
-        }
-    });
 });
 
-console.log('bbb');
 function check_status() {
     var now = new Date();
 
@@ -74,10 +45,9 @@ function check_status() {
                           {title:'Ask Me Again Later', iconUrl:'images/clock.png'}]
             }
 
-            console.log('show notification');
-            // chrome.notifications.clear(NOTIFICATION_ID, function(wasCleared) {
-            //     console.log('cleared ' + wasCleared);
-            // });
+            chrome.notifications.clear(NOTIFICATION_ID, function(wasCleared) {
+                console.log('cleared ' + wasCleared);
+            });
             chrome.notifications.create(NOTIFICATION_ID, opt, function(notificationId) {
                 console.log('create ' + notificationId);
             });
@@ -85,4 +55,29 @@ function check_status() {
     }
 }
 
-console.log('ccc');
+chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex) {
+    if (notificationId == NOTIFICATION_ID) {
+        delay_seconds(30*60); // 30 minutes
+
+        if (buttonIndex == 0) {
+            var url = chrome.extension.getURL('popup.html');
+            var options = 'width=325,height=325,top=200,left=450';
+            window.popUpWindow = window.open(url, "Where Are You Working?", options);
+        }
+
+        chrome.notifications.clear(notificationId, function(wasCleared) {
+        });
+    }
+});
+
+chrome.notifications.onClosed.addListener(function(notificationId, byUser) {
+    if (notificationId == NOTIFICATION_ID && byUser) {
+        delay_seconds(5*60); // 5 minutes
+        chrome.notifications.clear(notificationId, function(wasCleared) {
+        });
+    }
+});
+
+setInterval(check_status, 30*1000); // 30 seconds
+check_status();
+
