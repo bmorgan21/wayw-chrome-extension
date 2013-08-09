@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Where Are You Working?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/popup.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+      <form id="f">
+          <div class="panel">
+              <div class="panel-heading clearfix">
+                  <div>
+                      <button class="pull-right btn btn-info btn-xs btn-block" id="dp" data-date-format="yyyy-mm-dd"><span class="pull-right glyphicon glyphicon-chevron-down"></span><span class="text">Thursday, August 8, 2013</span></button>
+                      <input type="hidden" name="d"/>
+                  </div>
+                  <br/>
+                  <br/>
+                  <div class="init">
+                      <input class="form-control" type="text" name="e" placeholder="Enter Email (i.e. me@mail.com)"/>
+                      <span class="help-block"></span>
+                  </div>
+              </div>
+
+              <h4>Where are you working today?</h4>
+              <div class="well">
+                  <table class="locations">
+                      <tr>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Office">
+                                  Office
+                              </label>
+                          </td>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Vacation Day">
+                                  Vacation Day
+                              </label>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Home">
+                                  Home
+                              </label>
+                          </td>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Holiday">
+                                  Holiday
+                              </label>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Traveling">
+                                  Traveling
+                              </label>
+                          </td>
+                          <td>
+                              <label class="radio-inline">
+                                  <input type="radio" name="l" value="Weekend">
+                                  Weekend
+                              </label>
+                          </td>
+                      </tr>
+                  </table>
+                  <span class="help-block"></span>
+              </div>
+              <div class="panel-footer text-right">
+                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Submit</button>
+                  <button type="button" class="btn btn-default later"><span class="glyphicon glyphicon-time"></span> Later</button>
+                  <span class="help-block"></span>
+              </div>
+          </div>
+      </form>
+
+      <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h3 class="modal-title"></h3>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- JavaScript plugins (requires jQuery) -->
+      <script src="js/jquery-1.10.2.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/popup.js"></script>
+  </body>
+</html>

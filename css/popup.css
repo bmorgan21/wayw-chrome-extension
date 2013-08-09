@@ -1,0 +1,64 @@
+body {
+    min-width: 325px;
+    overflow-x: hidden;
+}
+
+.panel {
+    margin-bottom:0;
+}
+
+table.locations {
+    margin:auto;
+}
+
+table.locations td {
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.btn-block {
+    font-size:15px;
+    text-align:left;
+    padding-left:10px;
+}
+.glyphicon.glyphicon-chevron-down {
+    margin-right:10px;
+    margin-top:3px;
+}
+
+.help-block {
+    display:none;
+}
+
+.has-error .help-block {
+    display:block;
+    margin-bottom:0;
+}
+
+.init.has-error .help-block {
+    display:none;
+}
+
+.well .help-block {
+    padding-left:20px;
+}
+
+input[type="text"] {
+    border-width:0;
+    background-color:transparent;
+    -webkit-box-shadow:none;
+    padding-left:0;
+}
+
+.has-error input[type="text"], input[type="text"]:focus {
+    border-width:1px;
+    background-color:white;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    padding-left:12px;
+}
+
+.modal-content .modal-header {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}

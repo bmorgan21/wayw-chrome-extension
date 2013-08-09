@@ -1,0 +1,22 @@
+{
+    "name": "Where Are You Working?",
+    "description": "Keep track of where you are working every day",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": ["notifications", "*://photatom.com/*"],
+    "background": {
+        "scripts": ["js/jquery-1.10.2.min.js", "js/background.js"],
+        "persistent": false
+    },
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "browser_action": {
+        "default_icon" : "images/icon.png",
+        "default_title": "Where Are You Working?",
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": ["images/pencil.png", "images/clock.png"]
+}
