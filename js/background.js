@@ -35,7 +35,7 @@ function check_status() {
         chrome.browserAction.setBadgeBackgroundColor({'color': '#FF0000'});
         chrome.browserAction.setBadgeText({text: "X"});
 
-        if (now.getHours() => 9 && now > next_check_time) {
+        if (now.getHours() >= 9 && now > next_check_time) {
             var opt = {
                 type: "basic",
                 title: "Where Are You Working?",
