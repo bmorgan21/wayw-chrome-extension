@@ -1,4 +1,5 @@
 var NOTIFICATION_ID = 'wayw';
+var ALARM_ID = 'check_status';
 
 chrome.browserAction.setBadgeBackgroundColor({'color': '#0000FF'});
 chrome.browserAction.setBadgeText({text: "?"});
@@ -13,6 +14,7 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 function check_status() {
+    console.log('check status called');
     var now = new Date();
 
     year = now.getFullYear();
@@ -78,6 +80,13 @@ chrome.notifications.onClosed.addListener(function(notificationId, byUser) {
     }
 });
 
-setInterval(check_status, 30*1000); // 30 seconds
+chrome.alarms.onAlarm.addListener(function(alarm) {
+    if (alarm.name == ALARM_ID) {
+        check_status();
+    }
+});
+
+// Create the alarm:
+chrome.alarms.create(ALARM_ID, {periodInMinutes: 1});
 check_status();
 

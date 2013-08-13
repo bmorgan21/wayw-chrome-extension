@@ -84,9 +84,10 @@ $(document).ready(function(){
                 $('#myModal .modal-title').html('Confirm');
                 $('#myModal .modal-body').html('Updated Successfully! [' + location + ' on ' + date + ']');
                 $('#myModal').modal('show');
+                chrome.runtime.getBackgroundPage(function(bp) {
+                    bp.check_status();
+                });
                 setTimeout(window.close, 2*1000);
-                var bp = chrome.extension.getBackgroundPage();
-                bp.check_status();
             } else {
                 $('#myModal .modal-footer').show();
                 $('#myModal .modal-title').html('Error');

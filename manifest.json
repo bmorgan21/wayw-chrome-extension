@@ -3,7 +3,7 @@
     "description": "Keep track of where you are working every day",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["notifications", "*://photatom.com/*"],
+    "permissions": ["alarms", "notifications", "*://photatom.com/*"],
     "background": {
         "scripts": ["js/jquery-1.10.2.min.js", "js/background.js"],
         "persistent": false
