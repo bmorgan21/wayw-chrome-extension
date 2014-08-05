@@ -76,9 +76,10 @@ $(document).ready(function(){
         localStorage['date-' + date] = true;
         localStorage['location-' + day_of_week($date.val())] = location;
 
-        $.post('http://photatom.com/wyaw/?e=' + encodeURIComponent(email), {a:'update', d:date, l:location}, function(data) {
+        $.post('http://whereareyouworking.appspot.com/?e=' + encodeURIComponent(email), {d:date, l:location}, function(data) {
             var $panel_footer = $('.panel-footer');
 
+            console.log('we got some data', data)
             if (data.indexOf('OK') == 0) {
                 $('#myModal .modal-footer').hide();
                 $('#myModal .modal-title').html('Confirm');
